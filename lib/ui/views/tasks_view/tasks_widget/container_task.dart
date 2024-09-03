@@ -49,7 +49,7 @@ class ContainerTask extends StatelessWidget {
           // const Spacer(),
           if (task.done!=null) ...[
             (20.h).ph,
-            CustomText(text: 'Done', textType: TextStyleType.body,textColor: AppColors.greenColor,)
+            const CustomText(text: 'Done', textType: TextStyleType.body,textColor: AppColors.greenColor,)
           ]
         ],
       ),

@@ -20,7 +20,6 @@ class CustomScaffoldTask extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
             backgroundColor: AppColors.whiteColor,
-            resizeToAvoidBottomInset: false,
             appBar: AppBar(
                 backgroundColor: AppColors.mainColor,
                 centerTitle: true,
@@ -41,18 +40,20 @@ class CustomScaffoldTask extends StatelessWidget {
                 )),
             body: Padding(
               padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 20.w),
-              child: Column(
-                children: [
-                  CustomText(
-                    topPadding: 20.h,
-                    textColor: AppColors.mainColor,
-                    textType: TextStyleType.title,
-                    fontSize: 35.sp,
-                    fontWeight: FontWeight.bold,
-                    text: title,
-                  ),
-                  ...children
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    CustomText(
+                      topPadding: 20.h,
+                      textColor: AppColors.mainColor,
+                      textType: TextStyleType.title,
+                      fontSize: 35.sp,
+                      fontWeight: FontWeight.bold,
+                      text: title,
+                    ),
+                    ...children
+                  ],
+                ),
               ),
             )));
   }

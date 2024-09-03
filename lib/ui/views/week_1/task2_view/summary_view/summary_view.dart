@@ -1,9 +1,9 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:internship_pakistan/ui/models/info_model.dart';
 import 'package:internship_pakistan/ui/shared/colors.dart';
-import 'package:internship_pakistan/ui/shared/custom_widget/custom_button.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_scaffold_task.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_text.dart';
 import 'package:internship_pakistan/ui/shared/extension_sizebox.dart';
@@ -24,80 +24,82 @@ class SummaryView extends StatelessWidget {
             taskNumber: '2',
             children: [
               (20.h).ph,
-              Container(
-                padding: EdgeInsets.all(30.w),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.r),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.mainColor.withOpacity(0.5),
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: const Offset(0, 3),
+              ZoomIn(
+                child: Container(
+                  padding: EdgeInsets.all(30.w),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15.r),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.mainColor.withOpacity(0.5),
+                          spreadRadius: 1,
+                          blurRadius: 3,
+                          offset: const Offset(0, 3),
+                        ),
+                      ]),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: 'Name: ',
+                            textType: TextStyleType.bodyBig,
+                            textColor: AppColors.mainColor,
+                          ),
+                          SizedBox(
+                            width: 330.w,
+                            child: CustomText(
+                              text: info.name,
+                              textType: TextStyleType.bodyBig,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
                       ),
-                    ]),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: 'Name: ',
-                          textType: TextStyleType.bodyBig,
-                          textColor: AppColors.mainColor,
-                        ),
-                        SizedBox(
-                          width: 330.w,
-                          child: CustomText(
-                            text: info.name,
+                      (20.h).ph,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: 'Email: ',
                             textType: TextStyleType.bodyBig,
-                            fontWeight: FontWeight.normal,
+                            textColor: AppColors.mainColor,
                           ),
-                        ),
-                      ],
-                    ),
-                    (20.h).ph,
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: 'Email: ',
-                          textType: TextStyleType.bodyBig,
-                          textColor: AppColors.mainColor,
-                        ),
-                        SizedBox(
-                          width: 330.w,
-                          child: CustomText(
-                            text: info.email,
+                          SizedBox(
+                            width: 330.w,
+                            child: CustomText(
+                              text: info.email,
+                              textType: TextStyleType.bodyBig,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
+                      ),
+                      (20.h).ph,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: 'Message: ',
                             textType: TextStyleType.bodyBig,
-                            fontWeight: FontWeight.normal,
+                            textColor: AppColors.mainColor,
                           ),
-                        ),
-                      ],
-                    ),
-                    (20.h).ph,
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(
-                          text: 'Message: ',
-                          textType: TextStyleType.bodyBig,
-                          textColor: AppColors.mainColor,
-                        ),
-                        SizedBox(
-                          width: 330.w,
-                          child: CustomText(
-                            text: info.message,
-                            textType: TextStyleType.bodyBig,
-                            fontWeight: FontWeight.normal,
+                          SizedBox(
+                            width: 330.w,
+                            child: CustomText(
+                              text: info.message,
+                              textType: TextStyleType.bodyBig,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               )
             ],

@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:internship_pakistan/ui/shared/colors.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_button.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_scaffold_task.dart';
-import 'package:internship_pakistan/ui/shared/custom_widget/custom_text.dart';
 import 'package:internship_pakistan/ui/shared/extension_sizebox.dart';
 import 'package:internship_pakistan/ui/shared/utils.dart';
 import 'package:internship_pakistan/ui/views/week_1/task2_view/task2_controller.dart';
@@ -84,10 +83,10 @@ class Task2View extends StatelessWidget {
                                     .validate()) {
                                   controller.loading = true;
                                   controller.update();
-                                  Future.delayed(const Duration(seconds: 2))
+                                  Future.delayed(
+                                          const Duration(seconds: 2))
                                       .then((value) {
                                     controller.handleSubmitInfo();
-
                                   });
                                 }
                               },

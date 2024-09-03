@@ -26,12 +26,6 @@ class TasksController extends GetxController {
                 ));
           })
     ]),
-    Week(numberWeek: 2, tasks: [
-      Task(id: 01, title: 'Build a Simple Counter App', goTo: () {}),
-      Task(id: 02, title: 'Create a Basic Contact Form', goTo: () {}),
-      Task(id: 03, title: 'Create a Basic Contact Form', goTo: () {}),
-      Task(id: 04, title: 'Create a Basic Contact Form', goTo: () {}),
-    ]),
   ];
 
   handleClickWeek({required int index}) {

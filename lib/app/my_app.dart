@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:internship_pakistan/ui/views/splash_screen_view/splash_screen_view.dart';
-import 'package:internship_pakistan/ui/views/tasks_view/tasks_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
             : Transition.cupertino,
         transitionDuration: const Duration(microseconds: 300),
         debugShowCheckedModeBanner: false,
-        title: 'Internship Pakstan',
+        title: 'Internship Pakistan',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),

@@ -1,13 +1,13 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:internship_pakistan/ui/shared/colors.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_text.dart';
 import 'package:internship_pakistan/ui/shared/extension_sizebox.dart';
 import 'package:internship_pakistan/ui/views/splash_screen_view/splash_screen_controller.dart';
 
-// ignore: must_be_immutable
 class SplashScreenView extends StatelessWidget {
   const SplashScreenView({super.key});
 
@@ -24,11 +24,18 @@ class SplashScreenView extends StatelessWidget {
               delay: const Duration(milliseconds: 300),
               child: Image.asset(
                 'assets/images/splash.png',
-                scale: 1.8,
+                scale:2.3,
               ),
             ),
             const Spacer(),
-            // (30.h).ph,
+            ZoomIn(
+              duration: const Duration(milliseconds: 600),
+              delay: const Duration(milliseconds: 1300),
+              child: SpinKitThreeBounce(
+                color: AppColors.mainColor,
+              ),
+            ),
+            (30.h).ph,
             ZoomIn(
               duration: const Duration(milliseconds: 600),
               delay: const Duration(milliseconds: 1300),
@@ -43,7 +50,7 @@ class SplashScreenView extends StatelessWidget {
                 textColor: AppColors.mainColor,
               ),
             ),
-            (200.h).ph,
+            (150.h).ph,
           ],
         ));
   }
