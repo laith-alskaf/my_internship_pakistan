@@ -5,7 +5,7 @@ class SplashScreenController extends GetxController {
   @override
   void onInit() {
     Future.delayed(const Duration(seconds: 4)).then((value) {
-      Get.offAll(const TasksView());
+      Get.offAll(() => const TasksView());
     });
     super.onInit();
   }

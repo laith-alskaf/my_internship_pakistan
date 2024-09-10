@@ -23,7 +23,6 @@ class W2Task1View extends StatelessWidget {
     return CustomScaffoldTask(
         floatingActionButton: GestureDetector(
           onTap: () {
-
             showDialogAddItem(controller: controller);
           },
           child: Container(
@@ -54,7 +53,7 @@ class W2Task1View extends StatelessWidget {
                     child: ListView(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
-                        itemExtent: 0.125.sh,
+                        itemExtent: 0.145.sh,
                         children:
                             List.generate(controller.items.length, (index) {
                           return SwipeActionCell(
@@ -85,11 +84,10 @@ class W2Task1View extends StatelessWidget {
                                               title:
                                                   'Item has been successfully deleted');
                                           controller.update();
-                                          if(Get.isDialogOpen==true){
+                                          if (Get.isDialogOpen == true) {
                                             Get.back();
                                           }
                                         });
-
                                   },
                                   color: AppColors.redColor),
                             ],

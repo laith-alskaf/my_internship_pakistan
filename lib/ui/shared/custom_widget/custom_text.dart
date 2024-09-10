@@ -60,6 +60,7 @@ class CustomText extends StatelessWidget {
           top: topPadding ?? 0),
       child: Text(
         text,
+        maxLines: maxLines,
         textAlign: isTextAlign,
         overflow: overflow ?? TextOverflow.visible,
         softWrap: true,

@@ -14,7 +14,7 @@ class ContainerItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20.w),
-      height: 100.h,
+      height: 120.h,
       width: 1.sw,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.r),
@@ -29,7 +29,10 @@ class ContainerItem extends StatelessWidget {
           ]),
       child: Row(
         children: [
-          Image.asset('assets/images/training.jpg',width: 120.w,),
+          Image.asset(
+            'assets/images/training.jpg',
+            width: 120.w,
+          ),
           (20.w).pw,
           SizedBox(
             width: 340.w,
@@ -38,7 +41,9 @@ class ContainerItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomText(
+                  maxLines: 2,
                   text: title,
+                  overflow: TextOverflow.ellipsis,
                   textType: TextStyleType.bodyBig,
                   textColor: AppColors.mainColor,
                   heightText: 1.1,
@@ -46,11 +51,12 @@ class ContainerItem extends StatelessWidget {
                 (10.h).ph,
                 CustomText(
                   text: body,
+                  maxLines: 2,
                   textType: TextStyleType.body,
                   fontSize: 18.sp,
+                  overflow: TextOverflow.ellipsis,
                   fontWeight: FontWeight.normal,
                 ),
-
               ],
             ),
           ),
