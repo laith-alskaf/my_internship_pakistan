@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
-import 'package:internship_pakistan/ui/models/task_model.dart';
-import 'package:internship_pakistan/ui/views/week_1/task1_view/task1_view.dart';
-import 'package:internship_pakistan/ui/views/week_1/task2_view/task2_view.dart';
+import 'package:internship_pakistan/models/task_model.dart';
+import 'package:internship_pakistan/ui/views/week_1/task1_view/w1task1_view.dart';
+import 'package:internship_pakistan/ui/views/week_1/task2_view/w1task2_view.dart';
+import 'package:internship_pakistan/ui/views/week_2/task1_view/w2task1_view.dart';
 
 class TasksController extends GetxController {
   int currentWeek = -1;
@@ -9,22 +10,33 @@ class TasksController extends GetxController {
     Week(numberWeek: 1, tasks: [
       Task(
           id: 01,
-          title: 'Build a Simple Counter App',
+          title: 'Simple Counter App',
           done: true,
           goTo: () {
-            Get.to(() => const Task1View(
-                  title: 'Build a Simple Counter App',
+            Get.to(() => const W1Task1View(
+                  title: 'Simple Counter App',
                 ));
           }),
       Task(
           id: 02,
-          title: 'Create a Basic Contact Form',
+          title: 'Basic Contact Form',
           done: true,
           goTo: () {
-            Get.to(() => const Task2View(
-                  title: 'Create a Basic Contact Form',
+            Get.to(() => const W1Task2View(
+                  title: 'Basic Contact Form',
                 ));
           })
+    ]),
+    Week(numberWeek: 2, tasks: [
+      Task(
+          id: 01,
+          title: 'Simple Shopping List App',
+          done: true,
+          goTo: () {
+            Get.to(() => const W2Task1View(
+                  title: 'Simple Shopping List App',
+                ));
+          }),
     ]),
   ];
 

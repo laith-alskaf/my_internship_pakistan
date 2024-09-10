@@ -9,16 +9,18 @@ class CustomScaffoldTask extends StatelessWidget {
       {super.key,
       required this.title,
       required this.taskNumber,
-      required this.children});
+      required this.children, this.floatingActionButton});
 
   final String title;
   final String taskNumber;
   final List<Widget> children;
+  final Widget? floatingActionButton;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          floatingActionButton:floatingActionButton ,
             backgroundColor: AppColors.whiteColor,
             appBar: AppBar(
                 backgroundColor: AppColors.mainColor,
@@ -38,22 +40,20 @@ class CustomScaffoldTask extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   text: 'Task-$taskNumber-',
                 )),
-            body: Padding(
-              padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 20.w),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    CustomText(
-                      topPadding: 20.h,
-                      textColor: AppColors.mainColor,
-                      textType: TextStyleType.title,
-                      fontSize: 35.sp,
-                      fontWeight: FontWeight.bold,
-                      text: title,
-                    ),
-                    ...children
-                  ],
-                ),
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CustomText(
+                    isTextAlign: TextAlign.center,
+                    topPadding: 20.h,
+                    textColor: AppColors.mainColor,
+                    textType: TextStyleType.title,
+                    fontSize: 35.sp,
+                    fontWeight: FontWeight.bold,
+                    text: title,
+                  ),
+                  ...children
+                ],
               ),
             )));
   }

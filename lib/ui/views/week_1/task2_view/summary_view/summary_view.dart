@@ -2,12 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:internship_pakistan/ui/models/info_model.dart';
+import 'package:internship_pakistan/models/info_model.dart';
 import 'package:internship_pakistan/ui/shared/colors.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_scaffold_task.dart';
-import 'package:internship_pakistan/ui/shared/custom_widget/custom_text.dart';
 import 'package:internship_pakistan/ui/shared/extension_sizebox.dart';
-import 'package:internship_pakistan/ui/views/week_1/task1_view/task1_controller.dart';
+import 'package:internship_pakistan/ui/views/week_1/task1_view/w1task1_controller.dart';
+import 'package:internship_pakistan/ui/views/week_1/task2_view/summary_view/custom_row_info.dart';
 
 class SummaryView extends StatelessWidget {
   const SummaryView({super.key, required this.info});
@@ -16,8 +16,8 @@ class SummaryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<Task1Controller>(
-        init: Task1Controller(),
+    return GetBuilder<W1Task1Controller>(
+        init: W1Task1Controller(),
         builder: (controller) {
           return CustomScaffoldTask(
             title: 'Summary Screen',
@@ -42,61 +42,19 @@ class SummaryView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(
-                            text: 'Name: ',
-                            textType: TextStyleType.bodyBig,
-                            textColor: AppColors.mainColor,
-                          ),
-                          SizedBox(
-                            width: 330.w,
-                            child: CustomText(
-                              text: info.name,
-                              textType: TextStyleType.bodyBig,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
+                      CustomRowInfo(
+                        title: 'Name: ',
+                        value: info.name,
                       ),
                       (20.h).ph,
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(
-                            text: 'Email: ',
-                            textType: TextStyleType.bodyBig,
-                            textColor: AppColors.mainColor,
-                          ),
-                          SizedBox(
-                            width: 330.w,
-                            child: CustomText(
-                              text: info.email,
-                              textType: TextStyleType.bodyBig,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
+                      CustomRowInfo(
+                        title: 'Email: ',
+                        value: info.email,
                       ),
                       (20.h).ph,
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText(
-                            text: 'Message: ',
-                            textType: TextStyleType.bodyBig,
-                            textColor: AppColors.mainColor,
-                          ),
-                          SizedBox(
-                            width: 330.w,
-                            child: CustomText(
-                              text: info.message,
-                              textType: TextStyleType.bodyBig,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
+                      CustomRowInfo(
+                        title: 'Message: ',
+                        value: info.message,
                       ),
                     ],
                   ),

@@ -7,17 +7,17 @@ import 'package:internship_pakistan/ui/shared/custom_widget/custom_button.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_scaffold_task.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_text.dart';
 import 'package:internship_pakistan/ui/shared/extension_sizebox.dart';
-import 'package:internship_pakistan/ui/views/week_1/task1_view/task1_controller.dart';
+import 'package:internship_pakistan/ui/views/week_1/task1_view/w1task1_controller.dart';
 
-class Task1View extends StatelessWidget {
-  const Task1View({super.key, required this.title});
+class W1Task1View extends StatelessWidget {
+  const W1Task1View({super.key, required this.title});
 
   final String title;
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<Task1Controller>(
-        init: Task1Controller(),
+    return GetBuilder<W1Task1Controller>(
+        init: W1Task1Controller(),
         builder: (controller) {
           return CustomScaffoldTask(
             title: title,

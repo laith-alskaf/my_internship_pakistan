@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class Task1Controller extends GetxController {
+class W1Task1Controller extends GetxController {
   int counter = 0;
 
   changeCounterValue({required bool increase}) {

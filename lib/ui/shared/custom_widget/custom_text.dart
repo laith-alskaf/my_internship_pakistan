@@ -3,11 +3,11 @@ import 'package:internship_pakistan/ui/shared/colors.dart';
 import 'package:internship_pakistan/ui/shared/utils.dart';
 
 enum TextStyleType {
-  title, // 30px  // title home view
-  subtitle, // 25px // profile name
+  title, // 30px
+  subtitle, // 25px
   bodyBig, // 20px
-  body, // 18px    // menu
-  small, // 16px  // default
+  body, // 18px
+  small, // 16px
   custom, // default TextStyle
 }
 

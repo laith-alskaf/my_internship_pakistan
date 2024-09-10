@@ -12,80 +12,84 @@ class TasksView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TasksController controller = Get.put(TasksController());
     return PopScope(
-        canPop: false,
-        child: SafeArea(
-            child: GetBuilder<TasksController>(
-          init: TasksController(),
-          builder: (controller) {
-            return Scaffold(
-                appBar: AppBar(
-                    backgroundColor: AppColors.mainColor,
-                    centerTitle: true,
-                    leading: controller.currentWeek == -1
-                        ? null
-                        : GestureDetector(
-                            onTap: () {
-                              controller.currentWeek = -1;
-                              controller.update();
-                            },
-                            child: Icon(
-                              Icons.arrow_back,
-                              color: AppColors.whiteColor,
-                              size: 30.w,
-                            )),
-                    title: CustomText(
-                      textColor: AppColors.whiteColor,
-                      textType: TextStyleType.title,
-                      fontWeight: FontWeight.bold,
-                      text: controller.currentWeek == -1
-                          ? 'Weeks'
-                          : 'Week-${controller.currentWeek.toString()}-',
-                    )),
-                backgroundColor: AppColors.whiteColor,
-                body: SingleChildScrollView(
-                  child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 30.h, horizontal: 20.w),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Wrap(
-                          spacing: 30.w,
-                          runSpacing: 30.w,
-                          children: controller.currentWeek == -1
-                              ? List.generate(controller.weekTask.length,
-                                  (index) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      controller.handleClickWeek(index: index);
-                                    },
-                                    child: ContainerWeek(
-                                      week:
-                                          controller.weekTask[index].numberWeek,
-                                    ),
-                                  );
-                                })
-                              : List.generate(
-                                  controller.weekTask[controller.currentWeek]
-                                      .tasks.length, (index) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      controller
-                                          .weekTask[controller.currentWeek]
-                                          .tasks[index]
-                                          .goTo();
-                                    },
-                                    child: ContainerTask(
-                                      task: controller
-                                          .weekTask[controller.currentWeek]
-                                          .tasks[index],
-                                    ),
-                                  );
-                                })),
-                    ),
+      canPop: false,
+      child: SafeArea(child: GetBuilder<TasksController>(
+        builder: (c) {
+          return Scaffold(
+              appBar: AppBar(
+                  backgroundColor: AppColors.mainColor,
+                  centerTitle: true,
+                  leading: controller.currentWeek == -1
+                      ? null
+                      : GestureDetector(
+                          onTap: () {
+                            controller.currentWeek = -1;
+                            controller.update();
+                          },
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: AppColors.whiteColor,
+                            size: 30.w,
+                          )),
+                  title: CustomText(
+                    textColor: AppColors.whiteColor,
+                    textType: TextStyleType.title,
+                    fontWeight: FontWeight.bold,
+                    text: controller.currentWeek == -1
+                        ? 'Weeks'
+                        : 'Week-${controller.weekTask[controller.currentWeek].numberWeek.toString()}-',
+                  )),
+              backgroundColor: AppColors.whiteColor,
+              body: SingleChildScrollView(
+                child: Padding(
+                  padding:
+                      EdgeInsets.symmetric(vertical: 30.h, horizontal: 20.w),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Wrap(
+                        spacing: 30.w,
+                        runSpacing: 30.w,
+                        children: controller.currentWeek == -1
+                            ? List.generate(controller.weekTask.length,
+                                (index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    controller.handleClickWeek(index: index);
+                                  },
+                                  child: ContainerWeek(
+                                    week: controller.weekTask[index].numberWeek,
+                                  ),
+                                );
+                              })
+                            : List.generate(
+                                controller.weekTask[controller.currentWeek]
+                                    .tasks.length, (index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    controller.weekTask[controller.currentWeek]
+                                        .tasks[index]
+                                        .goTo();
+                                  },
+                                  child: ContainerTask(
+                                    task: controller
+                                        .weekTask[controller.currentWeek]
+                                        .tasks[index],
+                                  ),
+                                );
+                              })),
                   ),
-                ));
-          },
-        )));
+                ),
+              ));
+        },
+      )),
+      onPopInvoked: (value) {
+        if (controller.currentWeek != -1) {
+          controller.currentWeek = -1;
+          controller.update();
+        }
+      },
+    );
   }
 }

@@ -4,10 +4,10 @@ import 'package:internship_pakistan/ui/shared/colors.dart';
 import 'package:internship_pakistan/ui/shared/custom_widget/custom_text.dart';
 
 enum ButtonTypeEnum {
-  big, //   Apply,  // 362 width
-  medium, //  Share the app link  // 170 width
-  normal, // English // Send an SMS  // 145 width
-  small, //  Next   // 120 width
+  big, // 362 width
+  medium, // 170 width
+  normal, // 145 width
+  small, // 120 width
   custom,
 }
 

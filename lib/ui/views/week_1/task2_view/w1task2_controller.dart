@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:internship_pakistan/ui/models/info_model.dart';
+import 'package:internship_pakistan/models/info_model.dart';
 import 'package:internship_pakistan/ui/views/week_1/task2_view/summary_view/summary_view.dart';
 
-class Task2Controller extends GetxController {
+class W1Task2Controller extends GetxController {
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
   TextEditingController message = TextEditingController();
