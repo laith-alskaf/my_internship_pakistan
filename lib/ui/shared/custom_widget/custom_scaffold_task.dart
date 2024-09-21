@@ -8,11 +8,16 @@ class CustomScaffoldTask extends StatelessWidget {
   const CustomScaffoldTask(
       {super.key,
       required this.title,
-      required this.taskNumber,
-      required this.children, this.floatingActionButton});
+       this.taskNumber,
+      required this.children,
+      this.floatingActionButton,
+      this.onTap,
+      this.titleAppbar});
 
   final String title;
-  final String taskNumber;
+  final String? titleAppbar;
+  final Function()? onTap;
+  final String? taskNumber;
   final List<Widget> children;
   final Widget? floatingActionButton;
 
@@ -20,15 +25,16 @@ class CustomScaffoldTask extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          floatingActionButton:floatingActionButton ,
+            floatingActionButton: floatingActionButton,
             backgroundColor: AppColors.whiteColor,
             appBar: AppBar(
                 backgroundColor: AppColors.mainColor,
                 centerTitle: true,
                 leading: GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
+                    onTap: onTap ??
+                        () {
+                          Get.back();
+                        },
                     child: Icon(
                       Icons.arrow_back,
                       color: AppColors.whiteColor,
@@ -38,20 +44,21 @@ class CustomScaffoldTask extends StatelessWidget {
                   textColor: AppColors.whiteColor,
                   textType: TextStyleType.title,
                   fontWeight: FontWeight.bold,
-                  text: 'Task-$taskNumber-',
+                  text:titleAppbar?? 'Task-$taskNumber-',
                 )),
             body: SingleChildScrollView(
               child: Column(
                 children: [
-                  CustomText(
-                    isTextAlign: TextAlign.center,
-                    topPadding: 20.h,
-                    textColor: AppColors.mainColor,
-                    textType: TextStyleType.title,
-                    fontSize: 35.sp,
-                    fontWeight: FontWeight.bold,
-                    text: title,
-                  ),
+                  if (title != '')
+                    CustomText(
+                      isTextAlign: TextAlign.center,
+                      topPadding: 20.h,
+                      textColor: AppColors.mainColor,
+                      textType: TextStyleType.title,
+                      fontSize: 35.sp,
+                      fontWeight: FontWeight.bold,
+                      text: title,
+                    ),
                   ...children
                 ],
               ),
