@@ -32,6 +32,10 @@ dependencies:
   animate_do: ^3.3.4
   flutter_screenutil: ^5.9.0
   flutter_spinkit: ^5.2.0
+  shared_preferences:
+  dropdown_button2: ^2.3.9
+
+
   flutter:
     sdk: flutter
 

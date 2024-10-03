@@ -37,7 +37,7 @@ class CustomRadio extends StatelessWidget {
             value: value,
             groupValue: selected,
             onChanged: onTaped,
-            fillColor: MaterialStateColor.resolveWith(
+            fillColor: WidgetStateColor.resolveWith(
                 (states) => fillColor ?? AppColors.mainColor),
           ),
         ));

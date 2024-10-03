@@ -4,6 +4,7 @@ import 'package:internship_pakistan/ui/views/week_1/task1_view/w1task1_view.dart
 import 'package:internship_pakistan/ui/views/week_1/task2_view/w1task2_view.dart';
 import 'package:internship_pakistan/ui/views/week_2/task1_view/w2task1_view.dart';
 import 'package:internship_pakistan/ui/views/week_3/task1_view/w3task1_view.dart';
+import 'package:internship_pakistan/ui/views/week_4/task1_view/w4task1_view.dart';
 
 class TasksController extends GetxController {
   int currentWeek = -1;
@@ -47,6 +48,17 @@ class TasksController extends GetxController {
           goTo: () {
             Get.to(() => const W3Task1View(
                   title: 'Quiz App',
+                ));
+          }),
+    ]),
+    Week(numberWeek: 4, tasks: [
+      Task(
+          id: 01,
+          title: 'To Do App',
+          done: true,
+          goTo: () {
+            Get.to(() => const W4task1View(
+                  title: 'To Do App',
                 ));
           }),
     ]),
